@@ -62,6 +62,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainScene.cs" />
     <Compile Include="GameController\PlayerController.cs" />
+    <Compile Include="ResourcesManager\EntityObjectPool.cs" />
+    <Compile Include="ResourcesManager\ResourcesManager.cs" />
+    <Compile Include="Utils\Globals.cs" />
+    <Compile Include="GameController\MapController.cs" />
+    <Compile Include="BattleModule\Battle.cs" />
+    <Compile Include="Utils\MapLoader.cs" />
+    <Compile Include="Utils\TextureCacheContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -95,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameController\" />
+    <Folder Include="BattleModule\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

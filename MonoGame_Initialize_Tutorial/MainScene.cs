@@ -1,37 +1,45 @@
 ﻿using Microsoft.Xna.Framework;
 using Nez;
+using GameController;
+using BattleModule;
 
-    public class MainScene : Scene
+public class MainScene : Scene
+{
+
+    public MainScene()
     {
+        addRenderer(new DefaultRenderer());
+    }
 
-        public MainScene()
-        {
-            addRenderer(new DefaultRenderer());
-        }
+    public override void initialize()
+    {
+        base.initialize();
 
-        public override void initialize()
-        {
-            base.initialize();
 
-            //Debug.log(2);
+    }
 
-        }
+    public override void onStart()
+    {
+        base.onStart();
 
-        public override void onStart()
-        {
-            base.onStart();
-            //Debug.log(3);
-            Core.scene.clearColor = Color.Black;
-        }
+        Core.scene.clearColor = Color.Beige;
+        Battle.Instance.Initialize();
 
-        public override void unload()
-        {
-            base.unload();
-        }
 
-        public override void update()
-        {
-            base.update();
+    }
+
+    public override void unload()
+    {
+        base.unload();
+    }
+
+    public override void update()
+    {
+        base.update();
+        if(Battle.Instance.State == GameState.Play)
+        { 
+            Battle.Instance.Update();
         }
     }
+}
 

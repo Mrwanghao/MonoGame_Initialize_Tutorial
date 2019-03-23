@@ -1,6 +1,5 @@
 ﻿using Nez;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+using Utils;
 
 
 /// <summary>
@@ -8,11 +7,11 @@ using Microsoft.Xna.Framework;
 /// </summary>
 public class MainGame : Core
 {
-    public MainGame() : base(800, 600, false, windowTitle:"Window Nez")
+    public MainGame() : base(Globals.WINDOW_DEFAULT_WIDTH, Globals.WINDOW_DEFAULT_HEIGHT, false, windowTitle:"Window Nez")
     {
-        Core.debugRenderEnabled = true;
         Core.scene = new MainScene(); 
-        Scene.setDefaultDesignResolution(800, 600, Scene.SceneResolutionPolicy.BestFit);
+        Scene.setDefaultDesignResolution(Globals.WINDOW_DEFAULT_WIDTH, Globals.WINDOW_DEFAULT_HEIGHT, Scene.SceneResolutionPolicy.BestFit);
+        Core.debugRenderEnabled = false;
     }
 }
 
