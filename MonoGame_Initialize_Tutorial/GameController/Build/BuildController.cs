@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Utils;
+using System.Collections.Generic;
 
 namespace GameController.Build
 {
@@ -14,6 +15,8 @@ namespace GameController.Build
             var ret = Core.scene.createEntity("");
             var sprite = ret.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
             sprite.setColor(Color.Blue);
+            sprite.layerDepth = 0.5f;
+            ret.addComponent<BuilderFollow>();
             return ret; 
         }
 
@@ -29,23 +32,33 @@ namespace GameController.Build
 
         private static Entity _theEntityIsBuilding;
 
+        private static List<Entity> _builders = new List<Entity>();
+
         public static void Update()
         {
             if (IsBuilding == true) 
             {
-                if (Input.isKeyPressed(Keys.D3)) 
+                if (Input.leftMouseButtonPressed) 
                 {
-                    //_theEntityIsBuilding.re
+                    if(_theEntityIsBuilding != null)
+                    {
+                        _theEntityIsBuilding.removeComponent<BuilderFollow>();
+                        _builders.Add(_theEntityIsBuilding);
+                        _theEntityIsBuilding = null;
+
+                        _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
+                        //IsBuilding = false;
+                    }
                 }
             }
             else
             {
                 if (Input.isKeyPressed(Keys.D3)) 
                 {
+                    IsBuilding = true;
+
                     _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
-                    //willBuilder.transform.position
-                    _theEntityIsBuilding.addComponent<BuilderFollow>();
-                    //_theEntityIsBuilding
+                    //_theEntityIsBuilding.addComponent<BuilderFollow>();
                 }
             }
         }
