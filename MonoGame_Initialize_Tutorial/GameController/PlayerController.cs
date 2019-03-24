@@ -22,9 +22,9 @@ namespace GameController
         private void Initialize()
         {
             _playerEntity = Core.scene.createEntity("Player");
-            _playerEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(TextureCacheContext.DEFAULT_TILE_NAME)));
+            var sprite = _playerEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(TextureCacheContext.DEFAULT_TILE_NAME)));
+            sprite.layerDepth = 0;
             _playerEntity.transform.position = Globals.WINDOW_CENTER;
-
             _playerInformation = new PlayerInformation();
         
         }
@@ -44,6 +44,9 @@ namespace GameController
             UpdatePlayerControllerDirection();
 
             _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+
+            //BUILD 
+            Build.BuildController.Update();
         }
 
         private void UpdatePlayerControllerDirection()
@@ -70,6 +73,8 @@ namespace GameController
 
                 _moveDirection.Normalize();
             }
+
+
         }
 
         static class PlayerInput

@@ -70,6 +70,8 @@
     <Compile Include="Utils\MapLoader.cs" />
     <Compile Include="Utils\TextureCacheContext.cs" />
     <Compile Include="GameController\PlayerInformation.cs" />
+    <Compile Include="GameController\Build\BuildController.cs" />
+    <Compile Include="GameController\Build\BuilderFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -104,6 +106,7 @@
   <ItemGroup>
     <Folder Include="GameController\" />
     <Folder Include="BattleModule\" />
+    <Folder Include="GameController\Build\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

@@ -8,7 +8,7 @@ namespace GameController
     {
         public PlayerInformation()
         {
-            MoveSpeed = 1.0f;
+            MoveSpeed = 3.0f;
         }
 
         public float MoveSpeed;
