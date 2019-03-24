@@ -69,6 +69,7 @@
     <Compile Include="BattleModule\Battle.cs" />
     <Compile Include="Utils\MapLoader.cs" />
     <Compile Include="Utils\TextureCacheContext.cs" />
+    <Compile Include="GameController\PlayerInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
