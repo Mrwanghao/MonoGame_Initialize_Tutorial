@@ -41,9 +41,16 @@ namespace GameController
 
         public void Update()
         {
+            UpdatePlayerControllerDirection();
+
+            _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+        }
+
+        private void UpdatePlayerControllerDirection()
+        {
             PlayerInput.Update();
 
-            if(PlayerInput.IsMoveInputing == false)
+            if (PlayerInput.IsMoveInputing == false)
             {
                 _moveDirection = Vector2.Zero;
             }
@@ -51,18 +58,18 @@ namespace GameController
             {
                 _moveDirection = Vector2.Zero;
 
-                if (PlayerInput.IsMoveInputingHoriontal == true) 
-                { 
+                if (PlayerInput.IsMoveInputingHoriontal == true)
+                {
                     _moveDirection = PlayerMoveDirections[PlayerInput.CurHoriontalDownKeys];
                 }
 
-                if (PlayerInput.IsMoveInputingVertical == true) 
+                if (PlayerInput.IsMoveInputingVertical == true)
                 {
                     _moveDirection += PlayerMoveDirections[PlayerInput.CurVerticalDownKeys];
                 }
-            }
 
-            _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+                _moveDirection.Normalize();
+            }
         }
 
         static class PlayerInput
@@ -188,10 +195,6 @@ namespace GameController
                         IsMoveInputingHoriontal = true;
                     }
                 }
-
-
-
-
 
             }
         }
