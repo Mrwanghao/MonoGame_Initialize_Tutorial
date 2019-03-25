@@ -23,10 +23,10 @@ namespace GameController
         {
             _playerEntity = Core.scene.createEntity("Player");
             var sprite = _playerEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(TextureCacheContext.DEFAULT_TILE_NAME)));
-            sprite.layerDepth = 0;
+            sprite.layerDepth = LayerManager.PLAYER_LAYER_DEPTH;
             _playerEntity.transform.position = Globals.WINDOW_CENTER;
             _playerInformation = new PlayerInformation();
-        
+            
         }
 
         private Vector2 _moveDirection = Vector2.Zero;

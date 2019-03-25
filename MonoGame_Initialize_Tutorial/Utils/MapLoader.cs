@@ -62,7 +62,7 @@ namespace Utils
                     Entity tile = Core.scene.createEntity(string.Format("tile : ({0}, {1})", row, col));
                     string fileName = (row + col) % 2 == 0 ? TextureCacheContext.WHITE_BLOCK_NAME : TextureCacheContext.BLACK_BLOCK_NAME;
                     Sprite sprite = tile.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
-                    sprite.layerDepth = 1;
+                    sprite.layerDepth = LayerManager.MAP_LAYER_DEPTH;
                     tile.transform.scale = Vector2.One * 5;
                     tile.transform.position = new Vector2((col + 0.5f) * sprite.bounds.width, (row + 0.5f) * sprite.bounds.height);
                     tile.transform.setParent(_mapRoot.transform);

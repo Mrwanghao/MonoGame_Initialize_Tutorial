@@ -15,7 +15,7 @@ namespace GameController.Build
             var ret = Core.scene.createEntity("");
             var sprite = ret.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
             sprite.setColor(Color.Blue);
-            sprite.layerDepth = 0.5f;
+            sprite.layerDepth = LayerManager.BUILDER_LAYER_DEPTH;
             ret.addComponent<BuilderFollow>();
             return ret; 
         }
@@ -47,7 +47,6 @@ namespace GameController.Build
                         _theEntityIsBuilding = null;
 
                         _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
-                        //IsBuilding = false;
                     }
                 }
             }
@@ -58,7 +57,6 @@ namespace GameController.Build
                     IsBuilding = true;
 
                     _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
-                    //_theEntityIsBuilding.addComponent<BuilderFollow>();
                 }
             }
         }
