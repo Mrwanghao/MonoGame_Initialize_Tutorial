@@ -17,11 +17,12 @@ namespace GameController
 
         private Entity _playerEntity;
         private PlayerInformation _playerInformation;
-        //private PlayerInput _playerInput;
 
         private void Initialize()
         {
             _playerEntity = Core.scene.createEntity("Player");
+            FollowCamera fc = new FollowCamera(_playerEntity, Core.scene.camera);
+            _playerEntity.addComponent(fc);
             var sprite = _playerEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(TextureCacheContext.DEFAULT_TILE_NAME)));
             sprite.layerDepth = LayerManager.PLAYER_LAYER_DEPTH;
             _playerEntity.transform.position = Globals.WINDOW_CENTER;
