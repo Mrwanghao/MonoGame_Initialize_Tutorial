@@ -106,6 +106,12 @@
     <Folder Include="Src\ResourcesManager\" />
     <Folder Include="Src\Utils\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">
+      <Project>{60B7197D-D0D5-405C-90A2-A56903E9B039}</Project>
+      <Name>Nez</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
 </Project>
