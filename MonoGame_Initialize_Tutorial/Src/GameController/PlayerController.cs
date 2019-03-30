@@ -31,8 +31,6 @@ namespace GameController
             
         }
 
-        private Vector2 _moveDirection = Vector2.Zero;
-
         private Dictionary<Keys, Vector2> PlayerMoveDirections = new Dictionary<Keys, Vector2>()
         {
             {Keys.W, new Vector2(0.0f, -1.0f)},
@@ -43,23 +41,23 @@ namespace GameController
 
         public void Update()
         {
-            UpdatePlayerControllerDirection();
+            UpdatePlayerControllerDirectionWithPlayerInput();
 
             //BUILD 
             BuildController.Instance.Update();
         }
 
-        private void UpdatePlayerControllerDirection()
+        private void UpdatePlayerControllerDirectionWithPlayerInput()
         {
             PlayerInput.Instance.Update();
 
             if (PlayerInput.Instance.IsMoveInputing == false)
             {
-                _moveDirection = Vector2.Zero;
+                return;
             }
             else
             {
-                _moveDirection = Vector2.Zero;
+                Vector2 _moveDirection = Vector2.Zero;
 
                 if (PlayerInput.Instance.IsMoveInputingHoriontal == true)
                 {
@@ -72,9 +70,9 @@ namespace GameController
                 }
 
                 _moveDirection.Normalize();
-            }
 
-            _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+                _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+            }
 
         }
 

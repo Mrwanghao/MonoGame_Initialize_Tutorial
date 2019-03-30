@@ -73,6 +73,7 @@
     <Compile Include="Src\Main.cs" />
     <Compile Include="Src\MainGame.cs" />
     <Compile Include="Src\MainScene.cs" />
+    <Compile Include="Src\Utils\XMLSerialize.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -97,12 +98,6 @@
       <Link>libSDL2-2.0.0.dylib</Link>
       <Kind>Static</Kind>
     </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">
-      <Project>{60B7197D-D0D5-405C-90A2-A56903E9B039}</Project>
-      <Name>Nez</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src\" />

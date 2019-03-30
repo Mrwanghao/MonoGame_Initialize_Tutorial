@@ -25,7 +25,7 @@ namespace GameController.Build
 
         public Entity Build(string fileName)
         {
-            var ret = Core.scene.createEntity("");
+            var ret = Core.scene.createEntity("Builder");
             var sprite = ret.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
             sprite.setColor(Color.Blue);
             sprite.layerDepth = LayerManager.BUILDER_LAYER_DEPTH;
