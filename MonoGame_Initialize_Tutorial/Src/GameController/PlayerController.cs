@@ -51,9 +51,9 @@ namespace GameController
 
         private void UpdatePlayerControllerDirection()
         {
-            PlayerInput.Update();
+            PlayerInput.Instance.Update();
 
-            if (PlayerInput.IsMoveInputing == false)
+            if (PlayerInput.Instance.IsMoveInputing == false)
             {
                 _moveDirection = Vector2.Zero;
             }
@@ -61,14 +61,14 @@ namespace GameController
             {
                 _moveDirection = Vector2.Zero;
 
-                if (PlayerInput.IsMoveInputingHoriontal == true)
+                if (PlayerInput.Instance.IsMoveInputingHoriontal == true)
                 {
-                    _moveDirection = PlayerMoveDirections[PlayerInput.CurHoriontalDownKeys];
+                    _moveDirection = PlayerMoveDirections[PlayerInput.Instance.CurHoriontalDownKeys];
                 }
 
-                if (PlayerInput.IsMoveInputingVertical == true)
+                if (PlayerInput.Instance.IsMoveInputingVertical == true)
                 {
-                    _moveDirection += PlayerMoveDirections[PlayerInput.CurVerticalDownKeys];
+                    _moveDirection += PlayerMoveDirections[PlayerInput.Instance.CurVerticalDownKeys];
                 }
 
                 _moveDirection.Normalize();
@@ -78,10 +78,23 @@ namespace GameController
 
         }
 
-        static class PlayerInput
+        public class PlayerInput
         {
-            private static bool _isMoveInputingVertical = false;
-            public static bool IsMoveInputingVertical
+            private static PlayerInput _instance;
+            public static PlayerInput Instance
+            {
+                get 
+                { 
+                    if(_instance == null)
+                    {
+                        _instance = new PlayerInput();
+                    }
+                    return _instance;
+                }
+            }
+
+            private bool _isMoveInputingVertical = false;
+            public bool IsMoveInputingVertical
             {
                 get { return _isMoveInputingVertical; }
                 set 
@@ -98,8 +111,8 @@ namespace GameController
                 }
             }
 
-            private static bool _isMoveInputingHoriontal = false;
-            public static bool IsMoveInputingHoriontal
+            private bool _isMoveInputingHoriontal = false;
+            public bool IsMoveInputingHoriontal
             {
                 get { return _isMoveInputingHoriontal; }
                 set 
@@ -116,17 +129,17 @@ namespace GameController
                 }
             }
 
-            private static bool _isMoveInputing = false;
-            public static bool IsMoveInputing
+            private bool _isMoveInputing = false;
+            public bool IsMoveInputing
             { 
                 get { return _isMoveInputing; }
                 set { _isMoveInputing = value; }
             }
 
-            public static Keys CurVerticalDownKeys;
-            public static Keys CurHoriontalDownKeys;
+            public Keys CurVerticalDownKeys;
+            public Keys CurHoriontalDownKeys;
 
-            public static void Update()
+            public void Update()
             {
                 //都按下了
                 if (IsMoveInputingVertical == true && IsMoveInputingHoriontal == true)
