@@ -11,12 +11,14 @@ namespace BattleModule
 
     public class Battle
     {
+        private static bool _isInit = false;
 
+        #region Instance
         private static Battle _instance;
         public static Battle Instance
-        { 
+        {
             set { _instance = value; }
-            get 
+            get
             {
                 if(_instance == null)
                 {
@@ -25,12 +27,21 @@ namespace BattleModule
                 return _instance;
             }
         }
+        #endregion
+
+        #region attribute
+        private GameState _gameState = GameState.Play;
+        public GameState State
+        {
+            set { _gameState = value; }
+            get { return _gameState; }
+        }
 
         private MapController _mapController;
         private PlayerController _playerController;
+        #endregion
 
-        private static bool _isInit = false;
- 
+        #region life cycle
         public void Initialize()
         { 
             if(_isInit)
@@ -40,13 +51,6 @@ namespace BattleModule
 
             _mapController = new MapController();
             _playerController = new PlayerController();
-        }
-
-        private GameState _gameState = GameState.Play;
-        public GameState State
-        { 
-            set { _gameState = value; }
-            get { return _gameState; }
         }
 
         public void Update()
@@ -61,9 +65,6 @@ namespace BattleModule
                 _playerController.Update();
             }
         }
-
-        //敌人模块
-        //private 
-        //
+        #endregion
     }
 }

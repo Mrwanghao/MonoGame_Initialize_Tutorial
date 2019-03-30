@@ -5,6 +5,7 @@ using Utils;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using GameController.Build;
 
 namespace GameController
 {
@@ -44,10 +45,8 @@ namespace GameController
         {
             UpdatePlayerControllerDirection();
 
-            _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
-
             //BUILD 
-            Build.BuildController.Update();
+            BuildController.Instance.Update();
         }
 
         private void UpdatePlayerControllerDirection()
@@ -75,6 +74,7 @@ namespace GameController
                 _moveDirection.Normalize();
             }
 
+            _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
 
         }
 

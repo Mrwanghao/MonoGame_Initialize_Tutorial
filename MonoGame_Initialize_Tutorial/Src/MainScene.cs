@@ -15,7 +15,6 @@ public class MainScene : Scene
     {
         base.initialize();
 
-
     }
 
     public override void onStart()
@@ -25,21 +24,20 @@ public class MainScene : Scene
         Core.scene.clearColor = Color.Beige;
         Battle.Instance.Initialize();
 
-
     }
 
     public override void unload()
     {
         base.unload();
+
     }
 
     public override void update()
     {
         base.update();
-        if(Battle.Instance.State == GameState.Play)
-        { 
-            Battle.Instance.Update();
-        }
+
+        Battle.Instance.Update();
+
     }
 }
 

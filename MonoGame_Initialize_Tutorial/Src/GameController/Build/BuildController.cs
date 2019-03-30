@@ -8,9 +8,22 @@ using System.Collections.Generic;
 
 namespace GameController.Build
 {
-    public static class BuildController
+    public class BuildController
     {
-        public static Entity Build(string fileName)
+        private static BuildController _instance;
+        public static BuildController Instance
+        {
+            get 
+            {
+                if (_instance == null) 
+                {
+                    _instance = new BuildController();
+                }
+                return _instance;
+            }
+        }
+
+        public Entity Build(string fileName)
         {
             var ret = Core.scene.createEntity("");
             var sprite = ret.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
@@ -20,8 +33,8 @@ namespace GameController.Build
             return ret; 
         }
 
-        private static bool _isBuilding = false;
-        public static bool IsBuilding
+        private bool _isBuilding = false;
+        public bool IsBuilding
         { 
             set 
             {
@@ -30,11 +43,11 @@ namespace GameController.Build
             get { return _isBuilding; }
         }
 
-        private static Entity _theEntityIsBuilding;
+        private Entity _theEntityIsBuilding;
 
-        private static List<Entity> _builders = new List<Entity>();
+        private List<Entity> _builders = new List<Entity>();
 
-        public static void Update()
+        public void Update()
         {
             if (IsBuilding == true) 
             {

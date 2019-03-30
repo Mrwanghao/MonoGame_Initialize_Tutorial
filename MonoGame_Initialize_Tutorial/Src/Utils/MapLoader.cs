@@ -66,7 +66,7 @@ namespace Utils
                     tile.transform.scale = Vector2.One * 5;
                     tile.transform.position = new Vector2((col + 0.5f) * sprite.bounds.width, (row + 0.5f) * sprite.bounds.height);
                     tile.transform.setParent(_mapRoot.transform);
-                    _tiles.Add(tile);
+                    Tiles.Add(tile);
                 }
 
             }
