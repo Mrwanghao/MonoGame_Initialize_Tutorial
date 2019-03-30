@@ -3,15 +3,24 @@
 
 /outputDir:bin/$(Platform)
 /intermediateDir:obj/$(Platform)
-/platform:Windows
+/platform:MacOSX
 /config:
 /profile:Reach
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
+/reference:../../3rd/Nez.PipelineImporter/bin/Debug/Ionic.ZLib.dll
+/reference:../../3rd/Nez.PipelineImporter/bin/Debug/Newtonsoft.Json.dll
+/reference:../../3rd/Nez.PipelineImporter/bin/Debug/Nez.dll
+/reference:../../3rd/Nez.PipelineImporter/bin/Debug/Nez.PipelineImporter.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin 01_basement.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:01_basement.tmx
 
 #begin black block.png
 /importer:TextureImporter
@@ -24,6 +33,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:black block.png
+
+#begin meta.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:meta.png
 
 #begin tile default.png
 /importer:TextureImporter
