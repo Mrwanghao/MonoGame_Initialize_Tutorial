@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame_Initialize_Tutoria
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nez", "3rd\Nez.Portable\Nez.csproj", "{60B7197D-D0D5-405C-90A2-A56903E9B039}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nez.PipelineImporter", "3rd\Nez.PipelineImporter\Nez.PipelineImporter.csproj", "{D6C3C6D8-6C64-4EE8-BC04-228BBD4656D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{60B7197D-D0D5-405C-90A2-A56903E9B039}.Debug|x86.Build.0 = Debug|Any CPU
 		{60B7197D-D0D5-405C-90A2-A56903E9B039}.Release|x86.ActiveCfg = Release|Any CPU
 		{60B7197D-D0D5-405C-90A2-A56903E9B039}.Release|x86.Build.0 = Release|Any CPU
+		{D6C3C6D8-6C64-4EE8-BC04-228BBD4656D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D6C3C6D8-6C64-4EE8-BC04-228BBD4656D6}.Debug|x86.Build.0 = Debug|Any CPU
+		{D6C3C6D8-6C64-4EE8-BC04-228BBD4656D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D6C3C6D8-6C64-4EE8-BC04-228BBD4656D6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
