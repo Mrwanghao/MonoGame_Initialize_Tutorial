@@ -3,6 +3,9 @@ using Nez;
 using GameController;
 using BattleModule;
 
+using System.IO;
+using Microsoft.Xna.Framework.Graphics;
+
 public class MainScene : Scene
 {
 
@@ -23,6 +26,10 @@ public class MainScene : Scene
 
         Core.scene.clearColor = Color.Beige;
         Battle.Instance.Initialize();
+
+        Stream S = new FileStream("bathhouse_tiles.png", FileMode.Create);
+        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
+        texture.SaveAsPng(S, texture.Width, texture.Height);
 
     }
 
