@@ -11,13 +11,53 @@ using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
 
+using Nez.UI;
+
 namespace MapEditor.Desktop
 {
     public class MainScene : Scene
     {
+
+        Entity _entity;
+        Table _table;
+        UICanvas _canvas;
+
         public MainScene()
         {
             addRenderer(new DefaultRenderer());
+
+
+
+        }
+
+
+        public override void initialize()
+        {
+            base.initialize();
+
+            //_entity
+        }
+
+        public override void onStart()
+        {
+            base.onStart();
+
+            _entity = Core.scene.createEntity("ui root");
+            _canvas = new UICanvas();
+            _table = new Table();
+
+            _entity.addComponent(_canvas);
+            _canvas.stage.addElement(_table);
+            //new TextButton();
+            var button = new TextButton("Play Game", TextButtonStyle.create(Color.Black, Color.DarkGray, Color.Green));
+            _table.add(button).setMinWidth(100).setMinHeight(30).setPadTop(100).setPadLeft(100);
+            button.onClicked += PlayGame;
+
+        }
+
+        private void PlayGame(Button obj)
+        {
+            Debug.log("play game");
         }
 
         private List<Vector2> maps = new List<Vector2>();
@@ -26,6 +66,7 @@ namespace MapEditor.Desktop
         {
             base.update();
 
+            return;
             if (Input.leftMouseButtonPressed) 
             {
                 maps.Add(GetMapTilePositionWithInputMousePosition(Input.mousePosition));
