@@ -1,5 +1,7 @@
 ﻿using GameController;
 
+using Microsoft.Xna.Framework.Input;
+
 namespace BattleModule
 {
     public enum GameState
@@ -63,6 +65,11 @@ namespace BattleModule
             if (_playerController != null)
             {
                 _playerController.Update();
+            }
+
+            if (Nez.Input.isKeyPressed(Keys.P))
+            {
+                _mapController.Save();
             }
         }
         #endregion

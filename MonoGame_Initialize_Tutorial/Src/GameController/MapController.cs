@@ -11,7 +11,13 @@ namespace GameController
             _mapLoader = new MapLoader();
         }
 
-
+        public void Save()
+        {
+            if(_mapLoader != null)
+            { 
+                _mapLoader.Save();
+            }
+        }
 
     }
 }

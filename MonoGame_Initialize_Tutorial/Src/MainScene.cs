@@ -28,7 +28,7 @@ public class MainScene : Scene
         Battle.Instance.Initialize();
 
         Stream S = new FileStream("bathhouse_tiles.png", FileMode.Create);
-        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
+        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/LooseSprites/daybg");
         texture.SaveAsPng(S, texture.Width, texture.Height);
 
     }
@@ -46,5 +46,5 @@ public class MainScene : Scene
         Battle.Instance.Update();
 
     }
-}
+}        
 
