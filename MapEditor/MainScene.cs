@@ -26,7 +26,7 @@ namespace MapEditor.Desktop
         {
             addRenderer(new DefaultRenderer());
 
-
+            
 
         }
 
@@ -52,6 +52,9 @@ namespace MapEditor.Desktop
             var button = new TextButton("Play Game", TextButtonStyle.create(Color.Black, Color.DarkGray, Color.Green));
             _table.add(button).setMinWidth(100).setMinHeight(30).setPadTop(100).setPadLeft(100);
             button.onClicked += PlayGame;
+            _table.getCell(button).setPadTop(0);
+
+                      
 
         }
 
