@@ -39,8 +39,11 @@ namespace UI
             _table = null;
         }
 
-        protected virtual void Update() { }
-        protected virtual void OnDestroy() { }
+        public virtual void Update()
+        {
+
+        }
+        public virtual void OnDestroy() { }
 
         protected Entity _entity;
         protected UICanvas _canvas;

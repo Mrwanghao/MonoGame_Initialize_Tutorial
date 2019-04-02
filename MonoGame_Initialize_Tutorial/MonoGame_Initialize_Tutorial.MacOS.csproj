@@ -79,6 +79,7 @@
     <Compile Include="Src\Utils\XMLSerialize.cs" />
     <Compile Include="Src\UI\UIBase.cs" />
     <Compile Include="Src\UI\GameWindow.cs" />
+    <Compile Include="Src\UI\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

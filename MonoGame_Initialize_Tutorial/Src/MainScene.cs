@@ -2,7 +2,7 @@
 using Nez;
 using GameController;
 using BattleModule;
-
+using UI;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -31,6 +31,8 @@ public class MainScene : Scene
         Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/LooseSprites/daybg");
         texture.SaveAsPng(S, texture.Width, texture.Height);
 
+
+        UI.UIManager.Instance.Open("Game Window", new UI.GameWindow());
     }
 
     public override void unload()
@@ -45,6 +47,8 @@ public class MainScene : Scene
 
         Battle.Instance.Update();
 
+
+        UIManager.Instance.Update();
     }
 }        
 

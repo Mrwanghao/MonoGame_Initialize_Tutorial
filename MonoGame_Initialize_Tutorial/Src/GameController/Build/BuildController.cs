@@ -51,7 +51,7 @@ namespace GameController.Build
         {
             if (IsBuilding == true) 
             {
-                if (Input.leftMouseButtonPressed) 
+                if (Input.middleMouseButtonPressed) 
                 {
                     if(_theEntityIsBuilding != null)
                     {
