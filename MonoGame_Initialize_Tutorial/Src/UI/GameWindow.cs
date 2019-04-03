@@ -14,13 +14,13 @@ namespace UI
         protected override Table CreateTable()
         {
             Table table = new Table();
+            //table.setFillParent(true);
             return table;
         }
 
         protected override UICanvas CreateUICanvas()
         {
             UICanvas canvas = new UICanvas();
-            //canvas.isFullScreen = true;
             return canvas;
         }
 
@@ -28,7 +28,10 @@ namespace UI
         {
             base.AfterCreate();
 
-            text_button = AddTextButton("Hello World Button", 100, 200);
+            _entity.transform.setParent(Core.scene.camera.transform);
+            _entity.transform.localPosition = Vector2.Zero;
+
+            text_button = AddButton("Save Map Button", 100, 200);
             text_button.onClicked += Text_Button_OnClicked;
         }
 
@@ -44,15 +47,14 @@ namespace UI
         {
             base.Update();
 
-            Debug.log(text_button.getDisabled());
         }
 
-        private TextButton AddTextButton(string text, float left, float top)
+        private TextButton AddButton(string text, float left, float top)
         {
             TextButton text_button = new TextButton(text, TextButtonStyle.create(Color.Blue, Color.Black, Color.Red));
             Cell cell = _table.add(text_button);
-            cell.setPadLeft(left).setPadTop(top);
-            cell.setMinWidth(200).setMinHeight(40);
+            cell.setMinWidth(100).setMinHeight(30);
+            cell.setPadLeft(100).setPadTop(30);
             return text_button;
         }
     }

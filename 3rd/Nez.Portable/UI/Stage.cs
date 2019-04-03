@@ -195,8 +195,9 @@ namespace Nez.UI
 				_lastMousePosition = currentMousePosition;
 			}
 
-			var inputPos = screenToStageCoordinates( currentMousePosition );
-
+            var inputPos = currentMousePosition; 
+			//var inputPos = screenToStageCoordinates( currentMousePosition );
+            //Nez.Debug.log(inputPos);
 			updateInputPoint( inputPos, Input.leftMouseButtonPressed, Input.leftMouseButtonReleased,
 				mouseMoved, ref _mouseOverElement );
 		}

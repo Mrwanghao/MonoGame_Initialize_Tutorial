@@ -45,14 +45,14 @@ namespace MapEditor.Desktop
             _entity = Core.scene.createEntity("ui root");
             _canvas = new UICanvas();
             _table = new Table();
-
+            _table.setFillParent(true);
             _entity.addComponent(_canvas);
             _canvas.stage.addElement(_table);
             //new TextButton();
             var button = new TextButton("Play Game", TextButtonStyle.create(Color.Black, Color.DarkGray, Color.Green));
-            _table.add(button).setMinWidth(100).setMinHeight(30).setPadTop(100).setPadLeft(100);
+            _table.add(button).setMinWidth(100).setMinHeight(30).setPadTop(570).setPadLeft(0);
             button.onClicked += PlayGame;
-            _table.getCell(button).setPadTop(0);
+            //_table.getCell(button).setPadTop(0);
 
                       
 
