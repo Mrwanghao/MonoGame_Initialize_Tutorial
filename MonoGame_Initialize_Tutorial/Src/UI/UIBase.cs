@@ -24,7 +24,11 @@ namespace UI
         }
 
         public virtual void BeforeCreate() { }
-        public virtual void AfterCreate() { }
+        public virtual void AfterCreate() 
+        {
+            _entity.transform.setParent(Core.scene.camera.transform);
+            _entity.transform.localPosition = Vector2.Zero;
+        }
 
         public void Show() { _entity.enabled = true; }
         public void Hide() { _entity.enabled = false; }

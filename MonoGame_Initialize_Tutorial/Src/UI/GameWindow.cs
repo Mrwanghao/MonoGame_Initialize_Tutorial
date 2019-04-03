@@ -28,9 +28,6 @@ namespace UI
         {
             base.AfterCreate();
 
-            _entity.transform.setParent(Core.scene.camera.transform);
-            _entity.transform.localPosition = Vector2.Zero;
-
             text_button = AddButton("Save Map Button", 100, 200);
             text_button.onClicked += Text_Button_OnClicked;
         }
