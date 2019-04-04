@@ -27,10 +27,29 @@ public class MainScene : Scene
         Core.scene.clearColor = Color.Beige;
         Battle.Instance.Initialize();
 
-        Stream S = new FileStream("bathhouse_tiles.png", FileMode.Create);
-        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Cow");
-        texture.SaveAsPng(S, texture.Width, texture.Height);
 
+        //DirectoryInfo info = new DirectoryInfo("/Users/wanghao/Documents/GitHub/MonoGame_Initialize_Tutorial/MonoGame_Initialize_Tutorial/bin/Debug/MonoGame_Initialize_Tutorial.app/Contents/Resources/stardrew/Animatardrew/Animals");
+        //FileInfo[] files = info.GetFiles();
+        ////string[] files = Directory.GetFiles("sCould not find a part of the path '/Users/wanghao/Documents/GitHub/MonoGame_Initialize_Tutorial/MonoGame_Initialize_Tutorial/bin/Debug/MonoGame_Initialize_Tutorial.app/Contents/Resources/stardrew/Animatardrew/Animals");
+
+        //foreach(var filename in files)
+        //{
+        //    Texture2D texture = Core.scene.content.Load<Texture2D>(filename.Name);
+
+        //    string name = texture.Name;
+        //    int last_divide_operator_index = name.LastIndexOf('/');
+        //    int length = name.Length - last_divide_operator_index;
+        //    Stream S = new FileStream(texture.Name.Substring(last_divide_operator_index + 1, length - 1) + ".png", FileMode.Create);
+        //    texture.SaveAsPng(S, texture.Width, texture.Height);
+        //}
+
+        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/DesertTiles");
+
+        string name = texture.Name;
+        int last_divide_operator_index = name.LastIndexOf('/');
+        int length = name.Length - last_divide_operator_index;
+        Stream S = new FileStream(texture.Name.Substring(last_divide_operator_index + 1, length - 1) + ".png", FileMode.Create);
+        texture.SaveAsPng(S, texture.Width, texture.Height);
 
         UI.UIManager.Instance.Open("Game Window", new UI.GameWindow());
     }
