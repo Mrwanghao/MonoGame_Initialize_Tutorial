@@ -112,6 +112,7 @@
     <Folder Include="Src\ResourcesManager\" />
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\UI\" />
+    <Folder Include="Src\Editor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">
