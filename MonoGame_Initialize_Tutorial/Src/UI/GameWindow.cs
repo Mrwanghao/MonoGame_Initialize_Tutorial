@@ -14,7 +14,6 @@ namespace UI
         protected override Table CreateTable()
         {
             Table table = new Table();
-            //table.setFillParent(true);
             return table;
         }
 

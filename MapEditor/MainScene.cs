@@ -25,17 +25,11 @@ namespace MapEditor.Desktop
         public MainScene()
         {
             addRenderer(new DefaultRenderer());
-
-            
-
         }
-
 
         public override void initialize()
         {
             base.initialize();
-
-            //_entity
         }
 
         public override void onStart()
@@ -48,14 +42,16 @@ namespace MapEditor.Desktop
             _table.setFillParent(true);
             _entity.addComponent(_canvas);
             _canvas.stage.addElement(_table);
-            //new TextButton();
+
             var button = new TextButton("Play Game", TextButtonStyle.create(Color.Black, Color.DarkGray, Color.Green));
             _table.add(button).setMinWidth(100).setMinHeight(30).setPadTop(570).setPadLeft(0);
             button.onClicked += PlayGame;
-            //_table.getCell(button).setPadTop(0);
 
-                      
+            var slider = new Slider(0.0f, 1.0f, 0.1f, false, SliderStyle.create(Color.White, Color.Black));
+            _table.add(slider).setPadTop(100).setPadLeft(100);
 
+            CheckBox box_slider = null;
+            
         }
 
         private void PlayGame(Button obj)
@@ -69,60 +65,59 @@ namespace MapEditor.Desktop
         {
             base.update();
 
-            return;
-            if (Input.leftMouseButtonPressed) 
-            {
-                maps.Add(GetMapTilePositionWithInputMousePosition(Input.mousePosition));
-            }
+            //if (Input.leftMouseButtonPressed) 
+            //{
+            //    maps.Add(GetMapTilePositionWithInputMousePosition(Input.mousePosition));
+            //}
 
-            if(Input.rightMouseButtonDown)
-            { 
-                if(!File.Exists(fileName))
-                {
-                    File.Create(fileName).Dispose();
-                }
+            //if(Input.rightMouseButtonDown)
+            //{ 
+            //    if(!File.Exists(fileName))
+            //    {
+            //        File.Create(fileName).Dispose();
+            //    }
 
-                using (var sw = new StreamWriter(new FileStream(fileName, FileMode.Truncate)))   
-                {
-                    var ser = new XmlSerializer(typeof(List<Vector2>));
-                    ser.Serialize(sw, maps);
+            //    using (var sw = new StreamWriter(new FileStream(fileName, FileMode.Truncate)))   
+            //    {
+            //        var ser = new XmlSerializer(typeof(List<Vector2>));
+            //        ser.Serialize(sw, maps);
 
-                }
+            //    }
 
-                //var settting = new XmlWriterSettings();
-                //settting.Indent = true;
-                //using (var sw = XmlWriter.Create(fileName, settting))
-                //{
-                //    IntermediateSerializer.Serialize(sw, maps, null);
-                //}
-            }
+            //    //var settting = new XmlWriterSettings();
+            //    //settting.Indent = true;
+            //    //using (var sw = XmlWriter.Create(fileName, settting))
+            //    //{
+            //    //    IntermediateSerializer.Serialize(sw, maps, null);
+            //    //}
+            //}
 
-            if(Input.isKeyDown(Keys.P))
-            {
-                if (!File.Exists(fileName))
-                {
-                    File.Create(fileName).Dispose();
-                }
+            //if(Input.isKeyDown(Keys.P))
+            //{
+            //    if (!File.Exists(fileName))
+            //    {
+            //        File.Create(fileName).Dispose();
+            //    }
 
-                using (var sr = new StreamReader(new FileStream(fileName, FileMode.Open)))
-                {
-                    var ser = new XmlSerializer(typeof(List<Vector2>));
-                    maps = (List<Vector2>)ser.Deserialize(sr);
+            //    using (var sr = new StreamReader(new FileStream(fileName, FileMode.Open)))
+            //    {
+            //        var ser = new XmlSerializer(typeof(List<Vector2>));
+            //        maps = (List<Vector2>)ser.Deserialize(sr);
 
-                }
+            //    }
 
-                //var settting = new XmlReaderSettings();
-                //settting.CheckCharacters = true;
-                //using (var sr = XmlReader.Create(fileName, settting))
-                //{
-                //    maps = (List<Vector2>)IntermediateSerializer.Deserialize<List<Vector2>>(sr, null);
-                //}
+            //    //var settting = new XmlReaderSettings();
+            //    //settting.CheckCharacters = true;
+            //    //using (var sr = XmlReader.Create(fileName, settting))
+            //    //{
+            //    //    maps = (List<Vector2>)IntermediateSerializer.Deserialize<List<Vector2>>(sr, null);
+            //    //}
 
-                foreach (var map in maps)
-                {
-                    GetMapTilePositionWithInputMousePosition(map);
-                }
-            }
+            //    foreach (var map in maps)
+            //    {
+            //        GetMapTilePositionWithInputMousePosition(map);
+            //    }
+            //}
         }
 
         private string fileName = "map.xml";

@@ -28,7 +28,8 @@ namespace GameController
             sprite.layerDepth = LayerManager.PLAYER_LAYER_DEPTH;
             _playerEntity.transform.position = Globals.WINDOW_CENTER;
             _playerInformation = new PlayerInformation();
-            
+
+
         }
 
         private Dictionary<Keys, Vector2> PlayerMoveDirections = new Dictionary<Keys, Vector2>()

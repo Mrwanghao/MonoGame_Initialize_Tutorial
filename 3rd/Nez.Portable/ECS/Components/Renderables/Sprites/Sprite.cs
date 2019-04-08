@@ -34,7 +34,7 @@ namespace Nez.Sprites
 			get { return _origin; }
 			set { setOrigin( value ); }
 		}
-
+            
 		/// <summary>
 		/// helper property for setting the origin in normalized fashion (0-1 for x and y)
 		/// </summary>
@@ -127,7 +127,7 @@ namespace Nez.Sprites
 				_origin = subtexture.origin;
 			return this;
 		}
-
+        
 
 		/// <summary>
 		/// sets the origin for the Renderable

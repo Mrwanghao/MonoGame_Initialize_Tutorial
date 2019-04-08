@@ -43,7 +43,7 @@ public class MainScene : Scene
         //    texture.SaveAsPng(S, texture.Width, texture.Height);
         //}
 
-        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/DesertTiles");
+        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
 
         string name = texture.Name;
         int last_divide_operator_index = name.LastIndexOf('/');

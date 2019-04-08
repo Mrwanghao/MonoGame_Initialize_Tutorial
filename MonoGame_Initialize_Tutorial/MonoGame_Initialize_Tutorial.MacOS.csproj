@@ -80,6 +80,8 @@
     <Compile Include="Src\UI\UIBase.cs" />
     <Compile Include="Src\UI\GameWindow.cs" />
     <Compile Include="Src\UI\UIManager.cs" />
+    <Compile Include="Src\Editor\EditMapScene.cs" />
+    <Compile Include="Src\UI\LoginWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
