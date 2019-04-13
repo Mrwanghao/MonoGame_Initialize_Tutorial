@@ -25,18 +25,41 @@ namespace Components
         {
             base.initialize();
             Speed = 500.0f;
-            Core.schedule(1.0f, DestroySelf);
+            //Core.schedule(1.0f, DestroySelf);
         }
 
-        private void DestroySelf(ITimer timer)
+        //private void DestroySelf(ITimer timer)
+        //{
+        //    entity.destroy();
+        //    Debug.log("destroy {0}", Core.scene.entities.count);
+        //}
+        private BoxCollider _boxCollider;
+        public BoxCollider BulletCollider
         {
-            entity.destroy();
-            Debug.log("destroy {0}", Core.scene.entities.count);
+            get
+            {
+                if (_boxCollider == null)
+                {
+                    _boxCollider = entity.getComponent<BoxCollider>();
+                }
+                return _boxCollider;
+            }
         }
 
         public void update()
         {
             transform.position += Direction * Time.deltaTime * Speed;
+
+            //var box_collider = bullet.getComponent<BoxCollider>();
+            CollisionResult result;
+            if (BulletCollider.collidesWithAny(out result))
+            {
+                Debug.log("name = {0}", result.collider.entity.name);
+                entity.destroy();
+
+            }
         }
+
+
     }
 }

@@ -27,8 +27,7 @@ namespace GameController
             set { _isFire = value; }
             get { return _isFire; }
         }
-
-        private FastList<Entity> _bulletCache;
+        private bool _canFire = true;
 
         public void Update()
         { 
@@ -40,18 +39,33 @@ namespace GameController
             }
         }
 
+        public void SendMessageToFire()
+        { 
+            if(_canFire)
+            {
+                IsFire = true;
+            }
+        }
+
         private void Fire()
         {
             Vector2 startPosition = BattleModule.Battle.Instance.PlayerControllerTargetPosition;
             Vector2 mousePosition = Vector2Ext.transform(Input.mousePosition, Core.scene.camera.inverseTransformMatrix);
             //Vector2 mousePosition = Input.mousePosition;
             var bullet = Core.scene.createEntity("bullet");
-            bullet.transform.position = startPosition;
-            bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
+            var sprite_componnet = bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
             var bullet_component = bullet.addComponent<Components.BulletComponent>();
             var offset = mousePosition - startPosition;
             offset.Normalize();
             bullet_component.Direction = offset;
+
+            bullet.addComponent(new BoxCollider(sprite_componnet.bounds.x,
+                                                sprite_componnet.bounds.y,
+                                                sprite_componnet.bounds.width,
+                                                sprite_componnet.bounds.height
+                ));
+
+            bullet.transform.position = startPosition;
         }
     }
 }

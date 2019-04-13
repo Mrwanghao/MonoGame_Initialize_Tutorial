@@ -11,7 +11,9 @@ public class MainGame : Core
     {
         Core.scene = new MainScene(); 
         Scene.setDefaultDesignResolution(Globals.WINDOW_DEFAULT_WIDTH, Globals.WINDOW_DEFAULT_HEIGHT, Scene.SceneResolutionPolicy.BestFit);
-        Core.debugRenderEnabled = false;
+        Core.debugRenderEnabled = true;
+
+
     }
 }
 

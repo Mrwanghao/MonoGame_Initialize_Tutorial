@@ -163,11 +163,16 @@ namespace GameController
 
             public void Update()
             {
-                if (Input.isKeyPressed(Keys.Space))
+                if (Input.leftMouseButtonPressed)
                 {
                     Debug.log("Fire");
-                    FireController.Instance.IsFire = true;
+                    FireController.Instance.SendMessageToFire();
                 }
+
+                //if()
+                //{ 
+                
+                //}
 
                 //都按下了
                 if (IsMoveInputingVertical == true && IsMoveInputingHoriontal == true)

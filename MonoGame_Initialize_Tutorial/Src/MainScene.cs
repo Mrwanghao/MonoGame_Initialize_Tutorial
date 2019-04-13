@@ -43,6 +43,24 @@ public class MainScene : Scene
         //    texture.SaveAsPng(S, texture.Width, texture.Height);
         //}
 
+        Entity bullet = Core.scene.createEntity("bullet");
+        bullet.transform.position = Microsoft.Xna.Framework.Vector2.Zero;
+        var sprite_component = bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
+        bullet.transform.scale = Microsoft.Xna.Framework.Vector2.One * 5.0f;
+        //var bullet_component = bullet.addComponent<Components.BulletComponent>();
+        //var offset = mousePosition - startPosition;
+        //offset.Normalize();
+        //bullet_component.Direction = offset;
+
+        var box_collider = bullet.addComponent(
+                                                new BoxCollider(
+                                                    sprite_component.bounds.x,
+                                                    sprite_component.bounds.y,
+                                                    sprite_component.bounds.width,
+                                                    sprite_component.bounds.height
+                                                    )
+                                                );
+
         Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
 
         string name = texture.Name;
