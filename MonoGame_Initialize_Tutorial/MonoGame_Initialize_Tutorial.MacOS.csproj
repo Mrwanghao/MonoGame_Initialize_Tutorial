@@ -82,6 +82,8 @@
     <Compile Include="Src\UI\UIManager.cs" />
     <Compile Include="Src\Editor\EditMapScene.cs" />
     <Compile Include="Src\UI\LoginWindow.cs" />
+    <Compile Include="Src\Components\BulletComponent.cs" />
+    <Compile Include="Src\GameController\Fire\FireController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -115,6 +117,9 @@
     <Folder Include="Src\Utils\" />
     <Folder Include="Src\UI\" />
     <Folder Include="Src\Editor\" />
+    <Folder Include="Src\Components\" />
+    <Folder Include="Src\GameController\Fire\" />
+    <Folder Include="Src\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">

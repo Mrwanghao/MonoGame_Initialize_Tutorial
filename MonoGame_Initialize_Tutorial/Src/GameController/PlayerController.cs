@@ -13,11 +13,31 @@ namespace GameController
     {
         public PlayerController()
         {
-            Initialize();    
+            Initialize();
         }
 
         private Entity _playerEntity;
         private PlayerInformation _playerInformation;
+
+        public Vector2 TargetPosition { 
+            get
+            {
+                if (_playerEntity != null)
+                {
+                    return _playerEntity.position;
+                }
+                return Vector2.Zero;
+            }
+        }
+        //public Vector2 TargetPosition
+        //{ 
+        //    _player
+        //    if(_playerEntity != null)
+        //    {
+        //        return _playerEntity.position;
+        //    }
+        //    return Vector2.Zero;
+        //}
 
         private void Initialize()
         {
@@ -40,17 +60,20 @@ namespace GameController
             {Keys.A, new Vector2(-1.0f, 0.0f)},
         };
 
+
         public void Update()
         {
+            PlayerInput.Instance.Update();
+
             UpdatePlayerControllerDirectionWithPlayerInput();
 
             //BUILD 
             BuildController.Instance.Update();
+            FireController.Instance.Update();
         }
 
         private void UpdatePlayerControllerDirectionWithPlayerInput()
         {
-            PlayerInput.Instance.Update();
 
             if (PlayerInput.Instance.IsMoveInputing == false)
             {
@@ -140,6 +163,12 @@ namespace GameController
 
             public void Update()
             {
+                if (Input.isKeyPressed(Keys.Space))
+                {
+                    Debug.log("Fire");
+                    FireController.Instance.IsFire = true;
+                }
+
                 //都按下了
                 if (IsMoveInputingVertical == true && IsMoveInputingHoriontal == true)
                 {

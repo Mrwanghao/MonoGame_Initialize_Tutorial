@@ -23,6 +23,10 @@ namespace GameController.Build
             }
         }
 
+
+        private FastList<Entity> _builderCache;
+
+
         public Entity Build(string fileName)
         {
             var ret = Core.scene.createEntity("Builder");

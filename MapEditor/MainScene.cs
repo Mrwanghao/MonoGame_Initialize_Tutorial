@@ -50,7 +50,7 @@ namespace MapEditor.Desktop
             var slider = new Slider(0.0f, 1.0f, 0.1f, false, SliderStyle.create(Color.White, Color.Black));
             _table.add(slider).setPadTop(100).setPadLeft(100);
 
-            CheckBox box_slider = null;
+            //CheckBox box_slider = null;
             
         }
 

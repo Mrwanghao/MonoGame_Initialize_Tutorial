@@ -8,8 +8,8 @@ namespace Utils
         public static int DEFAULT_MAP_WIDTH = 16;
         public static int DEFAULT_MAP_HEIGHT = 16;
 
-        public static int WINDOW_DEFAULT_WIDTH = 800;
-        public static int WINDOW_DEFAULT_HEIGHT = 600;
+        public static int WINDOW_DEFAULT_WIDTH = 1280;
+        public static int WINDOW_DEFAULT_HEIGHT = 960;
 
         public static Vector2 WINDOW_CENTER = new Vector2(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT) / 2.0f;
 

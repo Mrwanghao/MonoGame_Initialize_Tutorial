@@ -1,5 +1,5 @@
 ﻿using GameController;
-
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BattleModule
@@ -41,6 +41,18 @@ namespace BattleModule
 
         private MapController _mapController;
         private PlayerController _playerController;
+
+        public Vector2 PlayerControllerTargetPosition
+        { 
+            get 
+            { 
+                if(_playerController != null)
+                {
+                    return _playerController.TargetPosition;
+                }
+                return Vector2.Zero;
+            }
+        }
         #endregion
 
         #region life cycle
@@ -53,6 +65,13 @@ namespace BattleModule
 
             _mapController = new MapController();
             _playerController = new PlayerController();
+
+            _isInit = true;
+        }
+
+        private void _initialize()
+        { 
+        
         }
 
         public void Update()
