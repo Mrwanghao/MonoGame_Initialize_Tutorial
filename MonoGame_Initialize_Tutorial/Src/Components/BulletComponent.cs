@@ -24,7 +24,7 @@ namespace Components
         public override void initialize()
         {
             base.initialize();
-            Speed = 5.0f;
+            Speed = 500.0f;
             Core.schedule(1.0f, DestroySelf);
         }
 
