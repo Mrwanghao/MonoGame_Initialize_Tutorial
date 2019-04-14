@@ -20,7 +20,6 @@ namespace GameController
             }
         }
 
-
         private bool _isFire = false;
         public bool IsFire 
         { 
@@ -51,11 +50,11 @@ namespace GameController
         {
             Vector2 startPosition = BattleModule.Battle.Instance.PlayerControllerTargetPosition;
             Vector2 mousePosition = Vector2Ext.transform(Input.mousePosition, Core.scene.camera.inverseTransformMatrix);
-            //Vector2 mousePosition = Input.mousePosition;
+
             var bullet = Core.scene.createEntity("bullet");
             var sprite_componnet = bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
             var bullet_component = bullet.addComponent<Components.BulletComponent>();
-            //bullet.transform.scale = Vector2.One * 5.0f;
+
             var offset = mousePosition - startPosition;
             offset.Normalize();
             bullet_component.Direction = offset;

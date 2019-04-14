@@ -24,10 +24,6 @@ namespace GameController.Build
             }
         }
 
-
-        //private FastList<Entity> _builderCache;
-
-
         public Entity Build(string fileName)
         {
             var ret = Core.scene.createEntity("Builder");
@@ -68,15 +64,29 @@ namespace GameController.Build
                     }
                 }
             }
+        }
+
+        public void StartBuildOrEndBuild()
+        {
+            IsBuilding = !IsBuilding;
+            if(IsBuilding == true)
+            {
+                StartBuild();
+            }
             else
             {
-                if (Input.isKeyPressed(Keys.D3)) 
-                {
-                    IsBuilding = true;
-
-                    _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
-                }
+                EndBuild();
             }
+        }
+
+        private void StartBuild()
+        {
+            _theEntityIsBuilding = Build(TextureCacheContext.WHITE_BLOCK_NAME);
+        }
+
+        private void EndBuild()
+        {
+            _theEntityIsBuilding.destroy();
         }
     }
 }

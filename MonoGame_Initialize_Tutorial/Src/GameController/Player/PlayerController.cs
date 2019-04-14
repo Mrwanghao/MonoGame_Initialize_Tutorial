@@ -71,8 +71,6 @@ namespace GameController
 
         public class PlayerInput
         {
-            //public event System.Action LeftMouseButtonPressed;
-
             private static PlayerInput _instance;
             public static PlayerInput Instance
             {
@@ -136,14 +134,8 @@ namespace GameController
             {
                 if (Input.leftMouseButtonPressed)
                 {
-                    //Debug.log("Fire");
                     FireController.Instance.SendMessageToFire();
                 }
-
-                //if()
-                //{ 
-                
-                //}
 
                 //都按下了
                 if (IsMoveInputingVertical == true && IsMoveInputingHoriontal == true)
@@ -218,6 +210,14 @@ namespace GameController
                         IsMoveInputingHoriontal = true;
                     }
                 }
+
+
+                if(Input.isKeyPressed(Keys.D3))
+                {
+                    BuildController.Instance.StartBuildOrEndBuild();
+                }
+
+
 
             }
         }
