@@ -40,15 +40,15 @@ namespace BattleModule
         }
 
         private MapController _mapController;
-        private PlayerController _playerController;
+        private Player mainPlayer;
 
         public Vector2 PlayerControllerTargetPosition
         { 
             get 
             { 
-                if(_playerController != null)
+                if(mainPlayer != null)
                 {
-                    return _playerController.TargetPosition;
+                    return mainPlayer.TargetPosition;
                 }
                 return Vector2.Zero;
             }
@@ -64,7 +64,7 @@ namespace BattleModule
             }
 
             _mapController = new MapController();
-            _playerController = new PlayerController();
+            mainPlayer = new Player();
 
             _isInit = true;
         }
@@ -81,15 +81,11 @@ namespace BattleModule
                 return;
             }
 
-            if (_playerController != null)
+            if(mainPlayer != null)
             {
-                _playerController.Update();
+                mainPlayer.Update();
             }
 
-            //if (Nez.Input.isKeyPressed(Keys.P))
-            //{
-            //    _mapController.Save();
-            //}
         }
         #endregion
     }

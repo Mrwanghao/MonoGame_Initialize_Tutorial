@@ -11,45 +11,13 @@ namespace GameController
 {
     public class PlayerController
     {
-        public PlayerController()
+        private Entity playerEntity;
+        private PlayerInformation playerInformation;
+
+        public PlayerController(Entity target, PlayerInformation information)
         {
-            Initialize();
-        }
-
-        private Entity _playerEntity;
-        private PlayerInformation _playerInformation;
-
-        public Vector2 TargetPosition { 
-            get
-            {
-                if (_playerEntity != null)
-                {
-                    return _playerEntity.position;
-                }
-                return Vector2.Zero;
-            }
-        }
-        //public Vector2 TargetPosition
-        //{ 
-        //    _player
-        //    if(_playerEntity != null)
-        //    {
-        //        return _playerEntity.position;
-        //    }
-        //    return Vector2.Zero;
-        //}
-
-        private void Initialize()
-        {
-            _playerEntity = Core.scene.createEntity("Player");
-            FollowCamera fc = new FollowCamera(_playerEntity, Core.scene.camera);
-            _playerEntity.addComponent(fc);
-            var sprite = _playerEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(TextureCacheContext.DEFAULT_TILE_NAME)));
-            sprite.layerDepth = LayerManager.PLAYER_LAYER_DEPTH;
-            _playerEntity.transform.position = Globals.WINDOW_CENTER;
-            _playerInformation = new PlayerInformation();
-
-
+            playerEntity = target;
+            playerInformation = information;
         }
 
         private Dictionary<Keys, Vector2> PlayerMoveDirections = new Dictionary<Keys, Vector2>()
@@ -60,9 +28,11 @@ namespace GameController
             {Keys.A, new Vector2(-1.0f, 0.0f)},
         };
 
-
         public void Update()
         {
+            if (playerEntity == null) 
+                return;
+ 
             PlayerInput.Instance.Update();
 
             UpdatePlayerControllerDirectionWithPlayerInput();
@@ -74,7 +44,6 @@ namespace GameController
 
         private void UpdatePlayerControllerDirectionWithPlayerInput()
         {
-
             if (PlayerInput.Instance.IsMoveInputing == false)
             {
                 return;
@@ -95,7 +64,7 @@ namespace GameController
 
                 _moveDirection.Normalize();
 
-                _playerEntity.transform.position += _moveDirection * _playerInformation.MoveSpeed; ;
+                playerEntity.transform.position += _moveDirection * playerInformation.MoveSpeed; ;
             }
 
         }

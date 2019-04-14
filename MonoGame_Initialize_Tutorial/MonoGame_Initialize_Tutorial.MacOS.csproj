@@ -85,6 +85,7 @@
     <Compile Include="Src\GameController\Player\PlayerController.cs" />
     <Compile Include="Src\GameController\Player\PlayerInformation.cs" />
     <Compile Include="Src\Components\BuilderFollow.cs" />
+    <Compile Include="Src\GameController\Player\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
