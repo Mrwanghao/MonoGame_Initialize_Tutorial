@@ -54,7 +54,7 @@ namespace Components
             CollisionResult result;
             if (BulletCollider.collidesWithAny(out result))
             {
-                Debug.log("name = {0}", result.collider.entity.name);
+                //Debug.log("name = {0}", result.collider.entity.name);
                 entity.destroy();
 
             }

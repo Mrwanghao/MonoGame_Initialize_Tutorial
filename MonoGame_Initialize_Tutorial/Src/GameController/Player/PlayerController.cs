@@ -102,6 +102,8 @@ namespace GameController
 
         public class PlayerInput
         {
+            //public event System.Action LeftMouseButtonPressed;
+
             private static PlayerInput _instance;
             public static PlayerInput Instance
             {
@@ -165,7 +167,7 @@ namespace GameController
             {
                 if (Input.leftMouseButtonPressed)
                 {
-                    Debug.log("Fire");
+                    //Debug.log("Fire");
                     FireController.Instance.SendMessageToFire();
                 }
 

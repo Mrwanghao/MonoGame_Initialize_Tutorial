@@ -1,7 +1,7 @@
 ﻿using Nez;
 
 
-namespace GameController.Build
+namespace Components
 {
     public class BuilderFollow : Component, IUpdatable
     {

@@ -86,10 +86,10 @@ namespace BattleModule
                 _playerController.Update();
             }
 
-            if (Nez.Input.isKeyPressed(Keys.P))
-            {
-                _mapController.Save();
-            }
+            //if (Nez.Input.isKeyPressed(Keys.P))
+            //{
+            //    _mapController.Save();
+            //}
         }
         #endregion
     }

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Utils;
 using System.Collections.Generic;
+using Components;
 
 namespace GameController.Build
 {
@@ -24,7 +25,7 @@ namespace GameController.Build
         }
 
 
-        private FastList<Entity> _builderCache;
+        //private FastList<Entity> _builderCache;
 
 
         public Entity Build(string fileName)

@@ -46,12 +46,6 @@ public class MainScene : Scene
         Entity bullet = Core.scene.createEntity("bullet");
         bullet.transform.position = Microsoft.Xna.Framework.Vector2.Zero;
         var sprite_component = bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
-        bullet.transform.scale = Microsoft.Xna.Framework.Vector2.One * 5.0f;
-        //var bullet_component = bullet.addComponent<Components.BulletComponent>();
-        //var offset = mousePosition - startPosition;
-        //offset.Normalize();
-        //bullet_component.Direction = offset;
-
         var box_collider = bullet.addComponent(
                                                 new BoxCollider(
                                                     sprite_component.bounds.x,
@@ -60,14 +54,21 @@ public class MainScene : Scene
                                                     sprite_component.bounds.height
                                                     )
                                                 );
+        bullet.transform.localScale = Microsoft.Xna.Framework.Vector2.One * 5.0f;
 
-        Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
+        //var bullet_component = bullet.addComponent<Components.BulletComponent>();
+        //var offset = mousePosition - startPosition;
+        //offset.Normalize();
+        //bullet_component.Direction = offset;
 
-        string name = texture.Name;
-        int last_divide_operator_index = name.LastIndexOf('/');
-        int length = name.Length - last_divide_operator_index;
-        Stream S = new FileStream(texture.Name.Substring(last_divide_operator_index + 1, length - 1) + ".png", FileMode.Create);
-        texture.SaveAsPng(S, texture.Width, texture.Height);
+
+        //Texture2D texture = Core.scene.content.Load<Texture2D>("stardrew/Animals/BabyBrown Chicken");
+
+        //string name = texture.Name;
+        //int last_divide_operator_index = name.LastIndexOf('/');
+        //int length = name.Length - last_divide_operator_index;
+        //Stream S = new FileStream(texture.Name.Substring(last_divide_operator_index + 1, length - 1) + ".png", FileMode.Create);
+        //texture.SaveAsPng(S, texture.Width, texture.Height);
 
         UI.UIManager.Instance.Open("Game Window", new UI.GameWindow());
     }

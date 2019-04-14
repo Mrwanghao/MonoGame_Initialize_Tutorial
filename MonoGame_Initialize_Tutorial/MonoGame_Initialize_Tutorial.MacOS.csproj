@@ -63,10 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\BattleModule\Battle.cs" />
     <Compile Include="Src\GameController\Build\BuildController.cs" />
-    <Compile Include="Src\GameController\Build\BuilderFollow.cs" />
-    <Compile Include="Src\GameController\MapController.cs" />
-    <Compile Include="Src\GameController\PlayerController.cs" />
-    <Compile Include="Src\GameController\PlayerInformation.cs" />
     <Compile Include="Src\ResourcesManager\EntityObjectPool.cs" />
     <Compile Include="Src\ResourcesManager\ResourcesManager.cs" />
     <Compile Include="Src\Utils\Globals.cs" />
@@ -84,6 +80,11 @@
     <Compile Include="Src\UI\LoginWindow.cs" />
     <Compile Include="Src\Components\BulletComponent.cs" />
     <Compile Include="Src\GameController\Fire\FireController.cs" />
+    <Compile Include="Src\GameController\AI\AIController.cs" />
+    <Compile Include="Src\GameController\Map\MapController.cs" />
+    <Compile Include="Src\GameController\Player\PlayerController.cs" />
+    <Compile Include="Src\GameController\Player\PlayerInformation.cs" />
+    <Compile Include="Src\Components\BuilderFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -120,6 +121,9 @@
     <Folder Include="Src\Components\" />
     <Folder Include="Src\GameController\Fire\" />
     <Folder Include="Src\Entities\" />
+    <Folder Include="Src\GameController\AI\" />
+    <Folder Include="Src\GameController\Map\" />
+    <Folder Include="Src\GameController\Player\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">
