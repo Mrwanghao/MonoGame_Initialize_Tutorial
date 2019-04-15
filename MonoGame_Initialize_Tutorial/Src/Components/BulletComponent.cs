@@ -49,14 +49,10 @@ namespace Components
         public void update()
         {
             transform.position += Direction * Time.deltaTime * Speed;
-
-            //var box_collider = bullet.getComponent<BoxCollider>();
             CollisionResult result;
             if (BulletCollider.collidesWithAny(out result))
             {
-                //Debug.log("name = {0}", result.collider.entity.name);
                 entity.destroy();
-
             }
         }
 

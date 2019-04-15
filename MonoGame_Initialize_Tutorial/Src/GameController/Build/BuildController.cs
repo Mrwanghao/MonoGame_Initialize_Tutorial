@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Utils;
 using System.Collections.Generic;
 using Components;
+using ResourcesManager;
 
 namespace GameController.Build
 {
@@ -26,12 +27,11 @@ namespace GameController.Build
 
         public Entity Build(string fileName)
         {
-            var ret = Core.scene.createEntity("Builder");
+            var ret = EntityFactory.Create(EntityFactory.EntityType.Builder);
             var sprite = ret.addComponent(new Sprite(Core.content.Load<Texture2D>(fileName)));
             sprite.setColor(Color.Blue);
             sprite.layerDepth = LayerManager.BUILDER_LAYER_DEPTH;
-            ret.addComponent<BuilderFollow>();
-            return ret; 
+            return ret;
         }
 
         private bool _isBuilding = false;

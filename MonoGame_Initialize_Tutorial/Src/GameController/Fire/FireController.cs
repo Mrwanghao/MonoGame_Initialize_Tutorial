@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Nez.Sprites;
 using Microsoft.Xna.Framework.Graphics;
+using ResourcesManager;
+using Components;
 
 namespace GameController
 {
@@ -44,6 +46,10 @@ namespace GameController
             {
                 IsFire = true;
             }
+            else
+            {
+                IsFire = false;
+            }
         }
 
         private void Fire()
@@ -51,19 +57,12 @@ namespace GameController
             Vector2 startPosition = BattleModule.Battle.Instance.PlayerControllerTargetPosition;
             Vector2 mousePosition = Vector2Ext.transform(Input.mousePosition, Core.scene.camera.inverseTransformMatrix);
 
-            var bullet = Core.scene.createEntity("bullet");
-            var sprite_componnet = bullet.addComponent(new Nez.Sprites.Sprite(Core.content.Load<Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
-            var bullet_component = bullet.addComponent<Components.BulletComponent>();
+            Entity bullet = EntityFactory.Create(EntityFactory.EntityType.Bullet);
 
             var offset = mousePosition - startPosition;
             offset.Normalize();
+            var bullet_component = bullet.getOrCreateComponent<BulletComponent>();
             bullet_component.Direction = offset;
-
-            bullet.addComponent(new BoxCollider(sprite_componnet.bounds.x,
-                                                sprite_componnet.bounds.y,
-                                                sprite_componnet.bounds.width,
-                                                sprite_componnet.bounds.height
-                ));
 
             bullet.transform.position = startPosition;
         }

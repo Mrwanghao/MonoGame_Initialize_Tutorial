@@ -86,6 +86,17 @@
     <Compile Include="Src\GameController\Player\PlayerInformation.cs" />
     <Compile Include="Src\Components\BuilderFollow.cs" />
     <Compile Include="Src\GameController\Player\Player.cs" />
+    <Compile Include="Src\ResourcesManager\EntityFactory.cs" />
+    <Compile Include="Src\InputSystem\InputManager.cs" />
+    <Compile Include="Src\InputSystem\Event\InputEventBase.cs" />
+    <Compile Include="Src\InputSystem\Interface\IInputProxyBase.cs" />
+    <Compile Include="Src\InputSystem\Proxy\InputOperationEventProxy.cs" />
+    <Compile Include="Src\InputSystem\Interface\IInputDispatcher.cs" />
+    <Compile Include="Src\InputSystem\InputDispatcher.cs" />
+    <Compile Include="Src\InputSystem\Interface\IInputOperationEventCreator.cs" />
+    <Compile Include="Src\InputSystem\Interface\EventBase\IInputEventBase.cs" />
+    <Compile Include="Src\InputSystem\Interface\EventBase\IInputOperationEventBase.cs" />
+    <Compile Include="Src\InputSystem\CustomEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -125,6 +136,11 @@
     <Folder Include="Src\GameController\AI\" />
     <Folder Include="Src\GameController\Map\" />
     <Folder Include="Src\GameController\Player\" />
+    <Folder Include="Src\InputSystem\" />
+    <Folder Include="Src\InputSystem\Event\" />
+    <Folder Include="Src\InputSystem\Proxy\" />
+    <Folder Include="Src\InputSystem\Interface\" />
+    <Folder Include="Src\InputSystem\Interface\EventBase\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\3rd\Nez.Portable\Nez.csproj">
