@@ -7,55 +7,40 @@ using Nez.UI;
 
 namespace UI
 {
-    public abstract class UIBase
+    public abstract class UIBase : Component, UILifeCycleInterface
     {
 
-        public UIBase()
-        {
-            BeforeCreate();
-
-            _entity = CreateEntity();
-            _canvas = CreateUICanvas();
-            _table = CreateTable();
-
-            _entity.addComponent(_canvas);
-            _canvas.stage.addElement(_table);
-
-            AfterCreate();
+        private int uiID;
+        public int UIID
+        { 
+            get { return uiID; }
         }
 
-        public virtual void BeforeCreate() { }
-        public virtual void AfterCreate() 
+        private string uiName;
+        public string UIName
         {
-            _entity.transform.setParent(Core.scene.camera.transform);
-            _entity.transform.localPosition = Vector2.Zero;
+            get 
+            { 
+                if(uiName == null)
+                {
+                    uiName = entity.name;
+                }
+                return uiName;
+            }
+            set 
+            { 
+                uiName = value; 
+            }
         }
 
-        public void Show() { _entity.enabled = true; }
-        public void Hide() { _entity.enabled = false; }
-        public void Toggle() { _entity.setEnabled(!_entity.enabled); }
-
-        public void Destroy() 
+        public void Dispose()
         {
-            OnDestroy();
-
-            _entity = null;
-            _canvas = null;
-            _table = null;
+            throw new System.NotImplementedException();
         }
 
-        public virtual void Update()
+        public void Initialize(string eventKey, int id)
         {
-
+            throw new System.NotImplementedException();
         }
-        public virtual void OnDestroy() { }
-
-        protected Entity _entity;
-        protected UICanvas _canvas;
-        protected Table _table;
-
-        protected abstract Entity CreateEntity();
-        protected abstract UICanvas CreateUICanvas();
-        protected abstract Table CreateTable();
     }
 }

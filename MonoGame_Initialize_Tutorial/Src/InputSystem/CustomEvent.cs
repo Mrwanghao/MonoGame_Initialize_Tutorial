@@ -8,8 +8,11 @@ namespace InputSystem
         public void TriggerEvent()
         { 
             if(Input.isKeyPressed(Keys.Space))
-            { 
+            {
                 //dispatch event to every listener
+                Debug.log("Dispatch event to every listener.");
+
+
             }
         }
     }

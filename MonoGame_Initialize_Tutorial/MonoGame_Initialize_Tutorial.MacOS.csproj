@@ -97,6 +97,13 @@
     <Compile Include="Src\InputSystem\Interface\EventBase\IInputEventBase.cs" />
     <Compile Include="Src\InputSystem\Interface\EventBase\IInputOperationEventBase.cs" />
     <Compile Include="Src\InputSystem\CustomEvent.cs" />
+    <Compile Include="Src\UI\UIWindowBase.cs" />
+    <Compile Include="Src\UI\UILifeCycleInterface.cs" />
+    <Compile Include="Src\BattleModule\ApplicationManager.cs" />
+    <Compile Include="Src\BattleModule\ApplicationStatusManager.cs" />
+    <Compile Include="Src\BattleModule\IApplicationStatus.cs" />
+    <Compile Include="Src\BattleModule\IApplicationGlobalLogic.cs" />
+    <Compile Include="Src\BattleModule\GlobalLogicManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

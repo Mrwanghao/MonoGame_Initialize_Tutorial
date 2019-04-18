@@ -70,7 +70,7 @@ public class MainScene : Scene
         //Stream S = new FileStream(texture.Name.Substring(last_divide_operator_index + 1, length - 1) + ".png", FileMode.Create);
         //texture.SaveAsPng(S, texture.Width, texture.Height);
 
-        UI.UIManager.Instance.Open("Game Window", new UI.GameWindow());
+        //UI.UIManager.Instance.Open("Game Window", new UI.GameWindow());
     }
 
     public override void unload()
