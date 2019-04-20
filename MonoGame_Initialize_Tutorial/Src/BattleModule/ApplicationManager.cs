@@ -40,9 +40,10 @@ namespace BattleModule
 
         }
 
+        //注册代理机制从这里开始
         private void LaunchApplication()
         { 
-        
+
         }
 
         public void update()

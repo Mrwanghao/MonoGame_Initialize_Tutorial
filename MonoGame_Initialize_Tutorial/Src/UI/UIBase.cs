@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Nez;
 using Nez.UI;
 
@@ -42,5 +43,19 @@ namespace UI
         {
             throw new System.NotImplementedException();
         }
+
+        public void Update()
+        { }
+
+        public void Show()
+        { }
+
+        internal void Destroy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Hide()
+        { }
     }
 }
