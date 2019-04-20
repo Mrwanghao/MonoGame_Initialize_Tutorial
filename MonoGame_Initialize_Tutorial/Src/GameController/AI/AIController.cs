@@ -19,7 +19,7 @@ namespace GameController
         {
             aiEntity = Core.scene.createEntity("AI");
             aiEntity.addComponent(new Sprite(Core.content.Load<Texture2D>(Utils.TextureCacheContext.BLACK_BLOCK_NAME)));
-
+            aiEntity.transform.position = Vector2.Zero;
         }
 
         public void Update()

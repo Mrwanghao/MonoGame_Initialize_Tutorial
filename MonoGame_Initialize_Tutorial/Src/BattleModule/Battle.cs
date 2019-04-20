@@ -74,6 +74,8 @@ namespace BattleModule
         
         }
 
+        private System.Collections.Generic.List<AIController> ai = new System.Collections.Generic.List<AIController>();
+
         public void Update()
         { 
             if(State != GameState.Play)
@@ -84,6 +86,16 @@ namespace BattleModule
             if(mainPlayer != null)
             {
                 mainPlayer.Update();
+            }
+
+            if(Nez.Input.isKeyPressed(Keys.O))
+            {
+                ai.Add(new AIController());
+            }
+
+            foreach(var aiele in ai)
+            {
+                aiele.Update();
             }
 
         }
